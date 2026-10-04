@@ -1,0 +1,19 @@
+{
+  "samples": [
+    {
+      "sample_id": "site1",
+      "job_id": "<PASTE_JOB_ID>",
+      "counts": {"q1": 5, "q2": 3, "q3": 2}
+    },
+    {
+      "sample_id": "site2",
+      "job_id": "<PASTE_JOB_ID>",
+      "counts": {"q1": 1, "q2": 8}
+    },
+    {
+      "sample_id": "site3",
+      "job_id": "<PASTE_JOB_ID>",
+      "counts": {"q1": 4}
+    }
+  ]
+}

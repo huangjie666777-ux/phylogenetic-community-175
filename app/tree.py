@@ -109,9 +109,21 @@ def orient_and_serialize(g: TreeGraph) -> str:
                 next(iter(g.adj)))
     visited = {root}
 
+    def quote_name(name: str) -> str:
+        """Quote Newick labels containing characters that need escaping.
+
+        Unquoted labels break on ' , : ; ( ) [ ] = and whitespace; commas are
+        the common failure (e.g. 'BOLD:AA1,sp2' used to split into two leaves).
+        """
+        safe = set("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+                   "0123456789_.-|/@")
+        if name and all(ch in safe for ch in name):
+            return name
+        return "'" + name.replace("'", "''") + "'"
+
     def fmt(node: int) -> str:
         if node in g.leaf_name:
-            return g.leaf_name[node]
+            return quote_name(g.leaf_name[node])
         parts = []
         for v, eid in list(g.adj[node]):
             if v in visited:

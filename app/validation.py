@@ -14,7 +14,7 @@ from Bio import Phylo
 # IUPAC ambiguity codes -> compatible nucleotide states (A, C, G, T).
 IUPAC = {
     "A": frozenset("A"), "C": frozenset("C"), "G": frozenset("G"),
-    "T": frozenset("T"), "U": frozenset("T"),
+    "T": frozenset("T"),
     "R": frozenset("AG"), "Y": frozenset("CT"), "S": frozenset("GC"),
     "W": frozenset("AT"), "K": frozenset("GT"), "M": frozenset("AC"),
     "B": frozenset("CGT"), "D": frozenset("AGT"), "H": frozenset("ACT"),
